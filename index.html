@@ -2,15 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="design-styles.css" />
+    <link rel="stylesheet" href="grid-styles.css" />
+    <link rel="stylesheet" href="reset-styles.css" />
     <script src="script.js" defer></script>
-    <title>Library</title>
+    <title>My Library</title>
 </head>
 
-<body>
-    <div class="book-container"></div>
+<body class="library">
+    <div class="library__container">
+        <header class="header">
+            <div class="header__bottom">
+                <div class="header__greeting-container">
+                    <div class="header__greeting-logo">
+                        <img src="images/header-images/morgan.png" alt="">
+                    </div>
+                    <div class="header__greeting">
+                        <p>Hi there</p>
+                        <p>Morgan Oakley (@morgan)</p>
+                    </div>
+                </div>
+                <div class="header__actions">
+                    <button class="header__action">New</button>
+                </div>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <h1 class="sidebar__title">
+                <img class="sidebar__logo-dashboard" src="images/sidebar-images/dashboard.svg" alt="">
+                <span>Library</span>
+            </h1>
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu sidebar__menu--primary">
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/home.svg" alt="">
+                            <span class="sidebar__text">Library</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/profile.svg" alt="">
+                            <span class="sidebar__text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/message.svg" alt="">
+                            <span class="sidebar__text">Messages</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/history.svg" alt="">
+                            <span class="sidebar__text">Book Loans</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="sidebar__menu sidebar__menu--secondary">
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/settings.svg" alt="">
+                            <span class="sidebar__text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/support.svg" alt="">
+                            <span class="sidebar__text">Support</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a class="sidebar__link" href="#">
+                            <img class="sidebar__logo-body" src="images/sidebar-images/privacy.svg" alt="">
+                            <span class="sidebar__text">Privacy</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section class="projects">
+                <h2 class="projects__title">Your Books</h2>
+                <div class="book__container">
+
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>

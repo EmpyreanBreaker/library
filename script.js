@@ -43,7 +43,7 @@ addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't
 addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis");
 
 // grab the container
-let bookContainer = document.querySelector(".book-container");
+let bookContainer = document.querySelector(".book__container");
 
 // display the books
 function displayBooks(myLibrary) {
