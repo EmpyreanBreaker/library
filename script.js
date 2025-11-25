@@ -1,9 +1,8 @@
 // create an empty array
 const myLibrary = [];
 
-
 // create Book constructor
-function Book(id, author, title, subtitle) {
+function Book(id, title, author, subtitle) {
     this.id = id;
     this.author = author;
     this.title = title;
@@ -11,33 +10,74 @@ function Book(id, author, title, subtitle) {
 }
 
 // take params, create a book then store it in the array
-function addBookToLibrary(author, title, subtitle) {
+// NOTE: now takes (title, author, subtitle)
+function addBookToLibrary(title, author, subtitle) {
     let id = crypto.randomUUID();
     let newBook = new Book(id, author, title, subtitle);
     myLibrary.push(newBook);
 }
 
 // sample books for testing purposes
-addBookToLibrary("J.R.R. Tolkien", "The Fellowship of the Ring", "Being the First Part of The Lord of the Rings");
+addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", "Being the First Part of The Lord of the Rings");
 
-addBookToLibrary("Harper Lee", "To Kill a Mockingbird", "A Novel");
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", "A Novel");
 
-addBookToLibrary("George Orwell", "1984", "A Dystopian Novel");
+addBookToLibrary("1984", "George Orwell", "A Dystopian Novel");
 
-addBookToLibrary("Mary Shelley", "Frankenstein", "Or, The Modern Prometheus");
+addBookToLibrary("Frankenstein", "Mary Shelley", "Or, The Modern Prometheus");
 
-addBookToLibrary("Jane Austen", "Pride and Prejudice", "A Story of Love and Misunderstanding");
+addBookToLibrary("Pride and Prejudice", "Jane Austen", "A Story of Love and Misunderstanding");
 
-addBookToLibrary("Isaac Asimov", "Foundation", "The Saga of the Psychohistorians");
+addBookToLibrary("Foundation", "Isaac Asimov", "The Saga of the Psychohistorians");
 
-addBookToLibrary("Ursula K. Le Guin", "A Wizard of Earthsea", "The First Book of Earthsea");
+addBookToLibrary("A Wizard of Earthsea", "Ursula K. Le Guin", "The First Book of Earthsea");
 
-addBookToLibrary("Octavia E. Butler", "Kindred", "A Novel");
+addBookToLibrary("Kindred", "Octavia E. Butler", "A Novel");
 
-addBookToLibrary("Toni Morrison", "Beloved", "A Novel");
+addBookToLibrary("Beloved", "Toni Morrison", "A Novel");
 
-addBookToLibrary("Brandon Sanderson", "Mistborn", "The Final Empire");
+addBookToLibrary("Mistborn", "Brandon Sanderson", "The Final Empire");
 
-addBookToLibrary("Douglas Adams", "The Hitchhiker's Guide to the Galaxy", "Don't Panic");
+addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't Panic");
 
-addBookToLibrary("Frank Herbert", "Dune", "A Heroic Saga on the Desert Planet Arrakis");
+addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis");
+
+// grab the container
+let bookContainer = document.querySelector(".book-container");
+
+// display the books
+function displayBooks(myLibrary) {
+    // get the library size
+    let size = myLibrary.length;
+
+    // loop through the array
+    for (let i = 0; i < size; i++) {
+        // build book elements
+        // build the article to hold books
+        const book = document.createElement("article");
+        book.classList.add("book");
+
+        // build the book title
+        const title = document.createElement("p");
+        title.classList.add("title");
+        title.textContent = myLibrary[i].title;
+
+        // build the author
+        const author = document.createElement("p");
+        author.classList.add("author");
+        author.textContent = myLibrary[i].author;
+
+        // build the subtitle
+        const subtitle = document.createElement("p");
+        subtitle.classList.add("subtitle");
+        subtitle.textContent = myLibrary[i].subtitle;
+
+        // build the book and add to the container
+        book.append(title);
+        book.append(author);
+        book.append(subtitle);
+        bookContainer.append(book);
+    }
+}
+
+displayBooks(myLibrary);
