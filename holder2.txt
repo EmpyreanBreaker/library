@@ -1,0 +1,209 @@
+/**HEADER**/
+.header {
+    /* box-shadow: 1px solid gray; */
+    background-color: white;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.header__search-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.header__input {
+    border-radius: 1.5rem;
+    background-color: rgba(226, 232, 240);
+    border: none;
+}
+
+.header__top p {
+    font-weight: bold;
+}
+
+.header__bottom p {
+    font-weight: bold;
+}
+
+.header__greeting-logo {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: rgba(250, 204, 21);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__greeting-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+}
+
+.header__greeting p+p {
+    font-size: 1.5rem;
+}
+
+.header__greeting>p {
+    font-size: 1.1rem;
+}
+
+
+.header__username-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(250, 204, 21);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__username-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+}
+
+.header__notification-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.header__action {
+    border-radius: 1.5rem;
+    border: none;
+    background-color: rgba(25, 146, 212);
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+    width: 6rem;
+    height: 2rem;
+}
+
+/**SIDEBAR**/
+.sidebar {
+    background-color: rgba(25, 146, 212);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.sidebar__logo-dashboard {
+    width: 4rem;
+    height: 4rem;
+}
+
+.sidebar__title {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar__nav {
+    padding-left: 1rem;
+}
+
+.sidebar__menu {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar__logo-body {
+    width: 2rem;
+    height: 2rem;
+}
+
+.sidebar__link,
+.sidebar__link:visited {
+    color: white;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.sidebar__menu-item {
+    list-style: none;
+}
+
+/**CONTENT**/
+.content {
+    background-color: rgba(226, 232, 240);
+    padding: 1.5rem;
+}
+
+.announcements__container {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.announcements__item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid gray;
+}
+
+.announcements__container .announcements__item:last-child {
+    border: none;
+    padding-bottom: 0;
+}
+
+.announcements__item-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.trending__container {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.trending__user-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trending__user-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+}
+
+.trending__user-01 {
+    background-color: rgba(224, 242, 254);
+}
+
+.trending__user-02 {
+    background-color: rgba(250, 204, 21);
+}
+
+.trending__user-03 {
+    background-color: rgba(163, 163, 163);
+}
+
+.trending__user-04 {
+    background-color: rgba(253, 164, 175);
+}
+
+.card {
+    background-color: white;
+    border-radius: 1rem;
+    border-left: 6px solid rgb(240, 180, 41);
+    padding: 1.5rem;
+}
+
+.card__actions {
+    width: 6rem;
+    height: 6rem;
+}
+
+.card__title{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
