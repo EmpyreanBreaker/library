@@ -13,7 +13,7 @@ function Book(id, title, author, subtitle) {
 // NOTE: now takes (title, author, subtitle)
 function addBookToLibrary(title, author, subtitle) {
     let id = crypto.randomUUID();
-    let newBook = new Book(id, author, title, subtitle);
+    let newBook = new Book(id, title, author, subtitle);
     myLibrary.push(newBook);
 }
 
@@ -43,7 +43,7 @@ addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't
 addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis");
 
 // grab the container
-let bookContainer = document.querySelector(".book__container");
+let bookContainer = document.querySelector(".books__container");
 
 // display the books
 function displayBooks(myLibrary) {
@@ -72,10 +72,21 @@ function displayBooks(myLibrary) {
         subtitle.classList.add("subtitle");
         subtitle.textContent = myLibrary[i].subtitle;
 
+        // add a button to the book
+        const deletButton = document.createElement("button");
+        deletButton.textContent = "Delete"
+
+        // add a button to the book
+        const readButton = document.createElement("button");
+        readButton.textContent = "Mark Read"
+
         // build the book and add to the container
         book.append(title);
         book.append(author);
         book.append(subtitle);
+        book.append(deletButton);
+        book.append(readButton)
+
         bookContainer.append(book);
     }
 }

@@ -27,11 +27,6 @@
 }
 
 /** OVERALL STYLING **/
-.library {
-    height: 100vh;
-    width: 100vw;
-}
-
 .header {
     background-color: rgb(255, 255, 255);
     padding: 1.5rem;
@@ -111,7 +106,6 @@ button:hover {
     background-color: rgba(0, 195, 255, 0.9);
 }
 
-
 /** SIDEBAR STYLING **/
 .sidebar__logo-dashboard {
     width: 4.5rem;
@@ -121,15 +115,44 @@ button:hover {
 .sidebar__title span {
     font-size: 2rem;
     font-weight: bold;
+    color: white;
 }
 
 .sidebar__link {
     color: white;
-    font-weight: medium;
+    font-weight: 500;
     font-size: 1.2rem;
 }
 
 .sidebar__link img {
     height: 2rem;
     width: 2rem;
+}
+
+/** CONTENT STYLING **/
+
+.books__title {
+    font-size: 1.5rem;
+}
+
+.book {
+    border-right: 6px solid rgb(240, 180, 41);
+    border-left: 6px solid rgb(240, 180, 41);
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.author {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.subtitle {
+    font-size: 1rem;
 }
