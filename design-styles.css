@@ -51,6 +51,13 @@
     font-family: 'Roboto', 'Courier New', Courier, monospace;
 }
 
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
 
 /** HEADER STYLING **/
 .header {
@@ -104,9 +111,25 @@ button:hover {
     background-color: rgba(0, 195, 255, 0.9);
 }
 
-/** TEMP STYLING **/
 
-img {
-    height: 1.5rem;
-    width: 1.5rem;
+/** SIDEBAR STYLING **/
+.sidebar__logo-dashboard {
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+.sidebar__title span {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.sidebar__link {
+    color: white;
+    font-weight: medium;
+    font-size: 1.2rem;
+}
+
+.sidebar__link img {
+    height: 2rem;
+    width: 2rem;
 }

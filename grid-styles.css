@@ -30,7 +30,7 @@
 
 .header__profile {
     grid-column: 1/2;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .header__actions {
@@ -49,4 +49,58 @@
 
 .header__greeting {
     grid-column: 2/3;
+}
+
+/** SIDEBAR **/
+.sidebar {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    gap: 1rem;
+}
+
+.sidebar__title {
+    grid-row: 1/2;
+}
+
+.sidebar__nav {
+    grid-row: 2/3;
+}
+
+.sidebar__title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar__nav {
+    height: 50%;
+    display: grid;
+    grid-template-rows: 4fr 3fr;
+    gap: 7rem;
+}
+
+.sidebar__menu--primary {
+    grid-row: 1/2;
+}
+
+.sidebar__menu--secondary {
+    grid-row: 2/3;
+}
+
+.sidebar__menu--primary{
+    display: grid;
+    gap: 1rem;
+}
+
+.sidebar__menu--secondary{
+    display: grid;
+    gap: 1rem;
+}
+
+.sidebar__link {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
 }
