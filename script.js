@@ -42,6 +42,9 @@ addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't
 
 addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis");
 
+
+
+/** DISPLAY BOOKS SCRIPT */
 // grab the container
 let bookContainer = document.querySelector(".books__container");
 
@@ -72,23 +75,37 @@ function displayBooks(myLibrary) {
         subtitle.classList.add("subtitle");
         subtitle.textContent = myLibrary[i].subtitle;
 
+        // add button subsection to the container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
+
         // add a button to the book
         const deletButton = document.createElement("button");
+        deletButton.classList.add("deleteButton");
         deletButton.textContent = "Delete"
 
         // add a button to the book
         const readButton = document.createElement("button");
+        readButton.classList.add("readButton");
         readButton.textContent = "Mark Read"
 
         // build the book and add to the container
         book.append(title);
         book.append(author);
         book.append(subtitle);
-        book.append(deletButton);
-        book.append(readButton)
 
+        // append the container to the book
+        buttonContainer.append(deletButton);
+        buttonContainer.append(readButton)
+        book.append(buttonContainer);
+
+        // finally add the book to our bookContainer
         bookContainer.append(book);
     }
 }
 
 displayBooks(myLibrary);
+
+/** ADD NEW BOOKS SCRIPT */
+// grab the add new book button
+const newBookButton = document.querySelector(".header__actions-button");
