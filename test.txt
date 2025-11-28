@@ -1,0 +1,28 @@
+bookContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("deleteButton")) {
+
+        const bookElement = e.target.closest(".book");
+        const bookIndex = bookElement.dataset.index;
+        deleteBook(bookIndex);;
+    }
+    else if
+
+    else{
+        return;
+    }
+
+
+})
+
+function deleteBook(bookIndex) {
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (bookIndex === myLibrary[i].id) {
+            myLibrary.splice(i, 1);
+            break;
+        }
+    }
+    displayBooks(myLibrary);
+}
+
+// add the current library book id to our book index data attribute
+        book.setAttribute("data-index", myLibrary[i].id);

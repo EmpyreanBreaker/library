@@ -136,7 +136,6 @@ button:hover {
 }
 
 .book {
-    border-right: 6px solid rgb(240, 180, 41);
     border-left: 6px solid rgb(240, 180, 41);
     background-color: white;
     border-radius: 0.5rem;

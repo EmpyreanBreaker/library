@@ -41,7 +41,6 @@ addBookToLibrary("Mistborn", "Brandon Sanderson", "The Final Empire", "Unread");
 
 addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't Panic", "Read");
 
-
 addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis", "Read");
 
 
@@ -52,6 +51,9 @@ let bookContainer = document.querySelector(".books__container");
 
 // display the books
 function displayBooks(myLibrary) {
+    // clear the container since this is a reusable function
+    bookContainer.innerHTML = "";
+
     // get the library size
     let size = myLibrary.length;
 
@@ -61,6 +63,8 @@ function displayBooks(myLibrary) {
         // build the article to hold books
         const book = document.createElement("article");
         book.classList.add("book");
+
+        
 
         // build the book title
         const title = document.createElement("p");
@@ -77,14 +81,19 @@ function displayBooks(myLibrary) {
         subtitle.classList.add("subtitle");
         subtitle.textContent = myLibrary[i].subtitle;
 
+        // build the status
+        const status = document.createElement("p");
+        status.classList.add("status");
+        status.textContent = `Status: ${myLibrary[i].status}`;
+
         // add button subsection to the container
         const buttonContainer = document.createElement("div");
         buttonContainer.classList.add("button-container");
 
         // add a button to the book
-        const deletButton = document.createElement("button");
-        deletButton.classList.add("deleteButton");
-        deletButton.textContent = "Delete"
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("deleteButton");
+        deleteButton.textContent = "Delete"
 
         // add a button to the book
         const readButton = document.createElement("button");
@@ -95,9 +104,10 @@ function displayBooks(myLibrary) {
         book.append(title);
         book.append(author);
         book.append(subtitle);
+        book.append(status);
 
         // append the container to the book
-        buttonContainer.append(deletButton);
+        buttonContainer.append(deleteButton);
         buttonContainer.append(readButton)
         book.append(buttonContainer);
 
@@ -115,26 +125,47 @@ const newBookButton = document.querySelector(".header__actions-button");
 // grab the modal dialog
 const newBookDialog = document.querySelector(".dialog");
 
-// grab the cancel button
-const newBookCancelButton = document.querySelector(".dialog__button-cancel");
-
 // user clicks the button so I want the modal to open
 newBookButton.addEventListener("click", () => {
     newBookDialog.showModal();
-})
+});
 
-// we don't need a cancel listener because of how we've set up our cancel button
+// Note: We don't need a cancel listener because of how we've set up our cancel button
 
-// book submission logic
+/** BOOK SUBMISSION LOGIC **/
 
 // grab each value of the book elements
+const newBookTitle = document.querySelector("#title");
+const newBookAuthor = document.querySelector("#author");
+const newBookSubtitle = document.querySelector("#subtitle");
+const newBookStatus = document.querySelector("#status")
+
 // user clicks confirm
-// prevent default behavior
-// create book object with values set to form element values
-// close dialog with book as parameter so return value of dialog is book object and not default
-// use modal listener that reacts on close
-    // if value is not default
-        // then add book to library using book object and addBookToLibraryFunction 
-        // then call displayBooks function again
-    // else
-        // do nothing
+const newBookConfirmButton = document.querySelector(".dialog__button-confirm");
+
+newBookConfirmButton.addEventListener("click", (e) => {
+    // prevent default behavior
+    // We don't want to submit this to an endpoint
+    e.preventDefault();
+    // close the dialog with a non default value
+    newBookDialog.close("New Book Added");
+});
+
+// Attach a listener to our modal that reacts on close
+newBookDialog.addEventListener("close", () => {
+
+    if (newBookDialog.returnValue != "cancel" && newBookDialog.returnValue != "default") {
+        // add new book to library
+        addBookToLibrary(newBookTitle.value, newBookAuthor.value, newBookSubtitle.value, newBookStatus.value);
+        // display the books again
+        displayBooks(myLibrary);
+    }
+
+    // reset everything
+    newBookTitle.value = "";
+    newBookAuthor.value = "";
+    newBookSubtitle.value = "";
+});
+
+
+/** DELETE BUTTON LOGIC **/
