@@ -90,7 +90,34 @@
                 <div class="books__container"></div>
             </section>
         </main>
-    </div>
+    </div> <!-- End Library Container-->
+
+    <dialog>
+        <form action="#" method="dialog">
+            <fieldset class="form__label">
+                <legend>Please Enter Your Book Information</legend>
+                <div class="form__input">
+                    <label for="title">Book Title:</label>
+                    <input id="title" name="title" type="text" required>
+                </div>
+                <div class="form__input">
+                    <label for="author">Author:</label>
+                    <input id="author" name="author" type="text" required>
+                </div>
+                <div class="form__input">
+                    <label for="subtitle">Subtitle:</label>
+                    <input id="subtitle" name="subtitle" type="text" required>
+                </div>
+                <div class="form__input">
+                    <label for="status" class="status">Status: </label>
+                    <select id="status" name="status">
+                        <option value="Read">Read</option>
+                        <option value="Incomplete">Unread</option>
+                    </select>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
 </body>
 
 </html>
