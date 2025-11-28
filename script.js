@@ -2,45 +2,47 @@
 const myLibrary = [];
 
 // create Book constructor
-function Book(id, title, author, subtitle) {
+function Book(id, title, author, subtitle, status) {
     this.id = id;
     this.author = author;
     this.title = title;
     this.subtitle = subtitle;
+    this.status = status;
 }
 
 // take params, create a book then store it in the array
 // NOTE: now takes (title, author, subtitle)
-function addBookToLibrary(title, author, subtitle) {
+function addBookToLibrary(title, author, subtitle, status) {
     let id = crypto.randomUUID();
-    let newBook = new Book(id, title, author, subtitle);
+    let newBook = new Book(id, title, author, subtitle, status);
     myLibrary.push(newBook);
 }
 
 // sample books for testing purposes
-addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", "Being the First Part of The Lord of the Rings");
+addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", "Being the First Part of The Lord of the Rings", "Read");
 
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", "A Novel");
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", "A Novel", "Read");
 
-addBookToLibrary("1984", "George Orwell", "A Dystopian Novel");
+addBookToLibrary("1984", "George Orwell", "A Dystopian Novel", "Unread");
 
-addBookToLibrary("Frankenstein", "Mary Shelley", "Or, The Modern Prometheus");
+addBookToLibrary("Frankenstein", "Mary Shelley", "Or, The Modern Prometheus", "Unread");
 
-addBookToLibrary("Pride and Prejudice", "Jane Austen", "A Story of Love and Misunderstanding");
+addBookToLibrary("Pride and Prejudice", "Jane Austen", "A Story of Love and Misunderstanding", "Unread");
 
-addBookToLibrary("Foundation", "Isaac Asimov", "The Saga of the Psychohistorians");
+addBookToLibrary("Foundation", "Isaac Asimov", "The Saga of the Psychohistorians", "Unread");
 
-addBookToLibrary("A Wizard of Earthsea", "Ursula K. Le Guin", "The First Book of Earthsea");
+addBookToLibrary("A Wizard of Earthsea", "Ursula K. Le Guin", "The First Book of Earthsea", "Read");
 
-addBookToLibrary("Kindred", "Octavia E. Butler", "A Novel");
+addBookToLibrary("Kindred", "Octavia E. Butler", "A Novel", "Read");
 
-addBookToLibrary("Beloved", "Toni Morrison", "A Novel");
+addBookToLibrary("Beloved", "Toni Morrison", "A Novel", "Read");
 
-addBookToLibrary("Mistborn", "Brandon Sanderson", "The Final Empire");
+addBookToLibrary("Mistborn", "Brandon Sanderson", "The Final Empire", "Unread");
 
-addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't Panic");
+addBookToLibrary("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "Don't Panic", "Read");
 
-addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis");
+
+addBookToLibrary("Dune", "Frank Herbert", "A Heroic Saga on the Desert Planet Arrakis", "Read");
 
 
 
@@ -109,3 +111,30 @@ displayBooks(myLibrary);
 /** ADD NEW BOOKS SCRIPT */
 // grab the add new book button
 const newBookButton = document.querySelector(".header__actions-button");
+
+// grab the modal dialog
+const newBookDialog = document.querySelector(".dialog");
+
+// grab the cancel button
+const newBookCancelButton = document.querySelector(".dialog__button-cancel");
+
+// user clicks the button so I want the modal to open
+newBookButton.addEventListener("click", () => {
+    newBookDialog.showModal();
+})
+
+// we don't need a cancel listener because of how we've set up our cancel button
+
+// book submission logic
+
+// grab each value of the book elements
+// user clicks confirm
+// prevent default behavior
+// create book object with values set to form element values
+// close dialog with book as parameter so return value of dialog is book object and not default
+// use modal listener that reacts on close
+    // if value is not default
+        // then add book to library using book object and addBookToLibraryFunction 
+        // then call displayBooks function again
+    // else
+        // do nothing

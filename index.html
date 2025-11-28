@@ -92,29 +92,31 @@
         </main>
     </div> <!-- End Library Container-->
 
-    <dialog>
-        <form action="#" method="dialog">
-            <fieldset class="form__label">
+    <dialog class="dialog" closedBy="any">
+        <form action="#" method="dialog" class="dialog__form">
+            <fieldset class="dialog__form-label">
                 <legend>Please Enter Your Book Information</legend>
-                <div class="form__input">
+                <div class="dialog__form-input">
                     <label for="title">Book Title:</label>
                     <input id="title" name="title" type="text" required>
                 </div>
-                <div class="form__input">
+                <div class="dialog__form-input">
                     <label for="author">Author:</label>
                     <input id="author" name="author" type="text" required>
                 </div>
-                <div class="form__input">
+                <div class="dialog__form-input">
                     <label for="subtitle">Subtitle:</label>
                     <input id="subtitle" name="subtitle" type="text" required>
                 </div>
-                <div class="form__input">
+                <div class="dialog__form-input">
                     <label for="status" class="status">Status: </label>
-                    <select id="status" name="status">
+                    <select id="status" name="status" required>
                         <option value="Read">Read</option>
-                        <option value="Incomplete">Unread</option>
+                        <option value="Unread">Unread</option>
                     </select>
                 </div>
+                <button class="dialog__button-cancel" value="cancel" formmethod="dialog" formnovalidate>Cancel</button>
+                <button class="dialog__button-confirm" value="default">Submit</button>
             </fieldset>
         </form>
     </dialog>
