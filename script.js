@@ -212,7 +212,7 @@ bookContainer.addEventListener("click", (e) => {
         const bookElement = e.target.closest(".book");
         const bookIndex = bookElement.dataset.index;
         // then delete the book
-        changeStatus(bookIndex);
+        newStatus(bookIndex);
     }
     else {
         // return if we don't have the class we want
@@ -220,13 +220,17 @@ bookContainer.addEventListener("click", (e) => {
     }
 });
 
+Book.prototype.changeStatus = function () {
+    this.status === "Read" ? this.status = "Unread" : this.status = "Read";
+}
+
 // it is important that we change the status in the array and redraw
 // rather than just change the status on the html
 // this way we maintain data integrity
-function changeStatus(bookIndex) {
+function newStatus(bookIndex) {
     for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].id === bookIndex) {
-            myLibrary[i].status === "Read" ? myLibrary[i].status = "Unread" : myLibrary[i].status = "Read";
+            myLibrary[i].changeStatus();
             break;
         }
     }
