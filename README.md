@@ -1,6 +1,6 @@
 # My Library
 
-A vanilla JavaScript app for managing a personal book collection.
+A small vanilla JavaScript app for managing a personal book collection.
 Users can add books, remove them, and toggle their read status. The UI is built with semantic HTML and modern CSS Grid, and all book data is stored in an in-memory array.
 
 This project is based on *The Odin Project* “Library” assignment, with a focus on:
