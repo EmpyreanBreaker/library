@@ -134,6 +134,15 @@ newBookButton.addEventListener("click", () => {
 // Note: We don't need a cancel listener because of how we've set up our cancel button
 
 /** BOOK SUBMISSION LOGIC **/
+// CANCELLATION PHASE
+const newBookCancelButton = document.querySelector(".dialog__button-cancel");
+
+newBookCancelButton.addEventListener("click", () => {
+    // just close
+    newBookDialog.close();
+});
+
+// CONFIRM/SUBMISSION PHASE
 const form = document.querySelector(".dialog__form");
 
 form.addEventListener("submit", (e) => {
@@ -142,7 +151,6 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 });
 
-// user clicks confirm button
 const newBookConfirmButton = document.querySelector(".dialog__button-confirm");
 
 newBookConfirmButton.addEventListener("click", () => {
