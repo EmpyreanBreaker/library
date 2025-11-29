@@ -64,7 +64,8 @@ function displayBooks(myLibrary) {
         const book = document.createElement("article");
         book.classList.add("book");
 
-        
+        // give the book a data attribute
+        book.setAttribute("data-index", myLibrary[i].id);
 
         // build the book title
         const title = document.createElement("p");
@@ -96,9 +97,9 @@ function displayBooks(myLibrary) {
         deleteButton.textContent = "Delete"
 
         // add a button to the book
-        const readButton = document.createElement("button");
-        readButton.classList.add("readButton");
-        readButton.textContent = "Mark Read"
+        const statusButton = document.createElement("button");
+        statusButton.classList.add("statusButton");
+        statusButton.textContent = "Change Status"
 
         // build the book and add to the container
         book.append(title);
@@ -108,7 +109,7 @@ function displayBooks(myLibrary) {
 
         // append the container to the book
         buttonContainer.append(deleteButton);
-        buttonContainer.append(readButton)
+        buttonContainer.append(statusButton)
         book.append(buttonContainer);
 
         // finally add the book to our bookContainer
@@ -168,4 +169,59 @@ newBookDialog.addEventListener("close", () => {
 });
 
 
-/** DELETE BUTTON LOGIC **/
+/** DELETE LOGIC **/
+// We will attach a listener to the parent since we have too many buttons
+bookContainer.addEventListener("click", (e) => {
+    // If it does have the deleteButton class
+    if (e.target.classList.contains("deleteButton")) {
+        // grab the needed book element and index
+        const bookElement = e.target.closest(".book");
+        const bookIndex = bookElement.dataset.index;
+        // then delete the book
+        deleteBook(bookIndex);
+    }
+    else {
+        // return if we don't have the class we want
+        return;
+    }
+});
+
+function deleteBook(bookIndex) {
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].id === bookIndex) {
+            myLibrary.splice(i, 1);
+            break;
+        }
+    }
+    displayBooks(myLibrary);
+}
+
+/** CHANGE STATUS LOGIC **/
+// We will attach a listener to the parent since we have too many buttons
+bookContainer.addEventListener("click", (e) => {
+    // If it does have the deleteButton class
+    if (e.target.classList.contains("statusButton")) {
+        // grab the needed book element and index
+        const bookElement = e.target.closest(".book");
+        const bookIndex = bookElement.dataset.index;
+        // then delete the book
+        changeStatus(bookIndex);
+    }
+    else {
+        // return if we don't have the class we want
+        return;
+    }
+});
+
+// it is important that we change the status in the array and redraw
+// rather than just change the status on the html
+// this way we maintain data integrity
+function changeStatus(bookIndex) {
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].id === bookIndex) {
+            myLibrary[i].status === "Read" ? myLibrary[i].status = "Unread" : myLibrary[i].status = "Read";
+            break;
+        }
+    }
+    displayBooks(myLibrary);
+}
