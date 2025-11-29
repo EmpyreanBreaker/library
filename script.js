@@ -134,38 +134,45 @@ newBookButton.addEventListener("click", () => {
 // Note: We don't need a cancel listener because of how we've set up our cancel button
 
 /** BOOK SUBMISSION LOGIC **/
+const form = document.querySelector(".dialog__form");
 
-// grab each value of the book elements
-const newBookTitle = document.querySelector("#title");
-const newBookAuthor = document.querySelector("#author");
-const newBookSubtitle = document.querySelector("#subtitle");
-const newBookStatus = document.querySelector("#status")
+form.addEventListener("submit", (e) => {
+    // this listener ensures form validation occurs 
+    // prevent default behavior
+    e.preventDefault();
+});
 
-// user clicks confirm
+// user clicks confirm button
 const newBookConfirmButton = document.querySelector(".dialog__button-confirm");
 
-newBookConfirmButton.addEventListener("click", (e) => {
-    // prevent default behavior
-    // We don't want to submit this to an endpoint
-    e.preventDefault();
+newBookConfirmButton.addEventListener("click", () => {
+    // after form submission validation is enforced
+    // this listener handles actual valid submissions
     // close the dialog with a non default value
+    // don't reset already input values if the user cancels or escapes out
     newBookDialog.close("New Book Added");
 });
 
 // Attach a listener to our modal that reacts on close
 newBookDialog.addEventListener("close", () => {
 
-    if (newBookDialog.returnValue != "cancel" && newBookDialog.returnValue != "default") {
+    if (newBookDialog.returnValue === "New Book Added") {
+        // grab each value of the book elements
+        const newBookTitle = document.querySelector("#title");
+        const newBookAuthor = document.querySelector("#author");
+        const newBookSubtitle = document.querySelector("#subtitle");
+        const newBookStatus = document.querySelector("#status")
         // add new book to library
         addBookToLibrary(newBookTitle.value, newBookAuthor.value, newBookSubtitle.value, newBookStatus.value);
+        // reset values for next valid run
+        // reset everything
+        newBookTitle.value = "";
+        newBookAuthor.value = "";
+        newBookSubtitle.value = "";
+        newBookDialog.returnValue = "default";
         // display the books again
         displayBooks(myLibrary);
     }
-
-    // reset everything
-    newBookTitle.value = "";
-    newBookAuthor.value = "";
-    newBookSubtitle.value = "";
 });
 
 

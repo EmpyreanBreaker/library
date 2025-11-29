@@ -131,3 +131,31 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+/** EXTRA GRIDS **/
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+dialog[open] {
+    margin: auto;
+}
+
+.dialog__form-fieldset {
+    display: grid;
+    gap: 1rem;
+}
+
+.dialog__form-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.dialog__button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}

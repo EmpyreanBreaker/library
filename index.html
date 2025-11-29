@@ -94,7 +94,7 @@
 
     <dialog class="dialog" closedBy="any">
         <form action="#" class="dialog__form">
-            <fieldset class="dialog__form-label">
+            <fieldset class="dialog__form-fieldset">
                 <legend>Please Enter Your Book Information</legend>
                 <div class="dialog__form-input">
                     <label for="title">Book Title:</label>
@@ -115,8 +115,11 @@
                         <option value="Unread">Unread</option>
                     </select>
                 </div>
-                <button class="dialog__button-cancel" value="cancel" formmethod="dialog" formnovalidate>Cancel</button>
-                <button class="dialog__button-confirm" value="default">Submit</button>
+                <div class="dialog__button-container">
+                    <button class="dialog__button-cancel" value="cancel" formmethod="dialog"
+                        formnovalidate>Cancel</button>
+                    <button class="dialog__button-confirm" value="default">Submit</button>
+                </div>
             </fieldset>
         </form>
     </dialog>
