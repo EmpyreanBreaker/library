@@ -151,9 +151,6 @@ const newBookButton = document.querySelector(".header__actions-button");
 // Grab the confirm addition of new book button
 const newBookConfirmButton = document.querySelector(".dialog__button-confirm");
 
-// Grab the cancel addition of new book button
-const newBookCancelButton = document.querySelector(".dialog__button-cancel");
-
 // Grab the modal dialog
 const newBookDialog = document.querySelector(".dialog");
 
@@ -166,31 +163,24 @@ newBookButton.addEventListener("click", () => {
     newBookDialog.showModal();
 });
 
-// Cancels the book addition on click
-newBookCancelButton.addEventListener("click", () => {
-    // just close
-    newBookDialog.close();
-});
-
 // Attach a listener to our modal that reacts on close
 newBookDialog.addEventListener("close", () => {
 
-    if (newBookDialog.returnValue === "default") {
-        // grab each value of the book elements
+    if (newBookDialog.returnValue === "confirm") {
+        // Grab each value of the book elements
         const newBookTitle = document.querySelector("#title");
         const newBookAuthor = document.querySelector("#author");
         const newBookSubtitle = document.querySelector("#subtitle");
         const newBookStatus = document.querySelector("#status")
-        // add new book to library
+        // Add new book to library
         myLibrary.addBookToLibrary(new Book(newBookTitle.value, newBookAuthor.value, newBookSubtitle.value, newBookStatus.value));
-        // reset values for next valid run
-        // reset everything
-        newBookTitle.value = "";
-        newBookAuthor.value = "";
-        newBookSubtitle.value = "";
-        newBookDialog.returnValue = "default";
+        // Reset values for next valid run
+        form.reset();
         // display the books again
         displayBooks(myLibrary);
+    }
+    else {
+        return;
     }
 });
 
