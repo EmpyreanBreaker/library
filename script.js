@@ -233,24 +233,26 @@ cancelButton.addEventListener("click", () => {
 
 const newBookAuthor = document.querySelector("#author");
 
+newBookAuthor.addEventListener("invalid", () => {
+  if (newBookAuthor.validity.valueMissing) {
+    newBookAuthor.setCustomValidity("Please enter the author's name.");
+  }
+});
+
 newBookAuthor.addEventListener("input", () => {
   newBookAuthor.setCustomValidity("");
 });
 
 form.addEventListener("submit", (event) => {
-  const newBookTitle = document.querySelector("#title");
-  const newBookAuthor = document.querySelector("#author");
-  const newBookSubtitle = document.querySelector("#subtitle");
-  const newBookStatus = document.querySelector("#status");
+  event.preventDefault();
 
-  newBookAuthor.setCustomValidity("");
-
-  if (newBookAuthor.value.trim() === "") {
-    event.preventDefault();
-    newBookAuthor.setCustomValidity("Please enter the author's name.");
-    newBookAuthor.reportValidity();
+  if (!form.reportValidity()) {
     return;
   }
+
+  const newBookTitle = document.querySelector("#title");
+  const newBookSubtitle = document.querySelector("#subtitle");
+  const newBookStatus = document.querySelector("#status");
 
   myLibrary.addBookToLibrary(
     new Book(
@@ -263,6 +265,7 @@ form.addEventListener("submit", (event) => {
 
   form.reset();
   displayBooks(myLibrary);
+  newBookDialog.close("confirm");
 });
 
 // --------------------DELETE AN EXISTING BOOK FROM THE LIBRARY--------------------//

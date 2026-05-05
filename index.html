@@ -125,7 +125,7 @@
     <!-- End Library Container-->
 
     <dialog class="dialog" closedby="any">
-      <form action="#" class="dialog__form" method="dialog">
+      <form action="#" class="dialog__form" method="dialog" novalidate>
         <fieldset class="dialog__form-fieldset">
           <legend>Please Enter Your Book Information</legend>
           <div class="dialog__form-input">
@@ -134,7 +134,7 @@
           </div>
           <div class="dialog__form-input">
             <label for="author">Author:</label>
-            <input id="author" name="author" type="text" />
+            <input id="author" name="author" type="text" required />
           </div>
           <div class="dialog__form-input">
             <label for="subtitle">Subtitle:</label>
